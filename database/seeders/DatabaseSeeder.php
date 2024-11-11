@@ -3,21 +3,39 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
+    private const TEST_USER = [
+        'name' => 'Mamad',
+        'email' => 'me@mamad.dev',
+        'password' => 'password', // default password,
+    ];
+
     /**
      * Seed the application's database.
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
+        // Create the main user
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => self::TEST_USER['name'],
+            'email' => self::TEST_USER['email'],
+            'password' => Hash::make(self::TEST_USER['password']),
+            'email_verified_at' => now(),
+            'remember_token' => Str::random(10),
+        ]);
+
+
+        User::factory(5)->create();
+
+        $this->call([
+            ProductSeeder::class,    // Create products
+            BasketSeeder::class,     // Create baskets for users
+            BasketItemSeeder::class, // Add items to baskets
         ]);
     }
 }
