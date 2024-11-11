@@ -13,7 +13,7 @@ use Illuminate\Routing\Controller as BaseController;
  *     description="API documentation for Shopping Cart system"
  * )
  * @OA\Server(
- *     url="/api",
+ *     url="/",
  *     description="API Server"
  * )
  * @OA\SecurityScheme(

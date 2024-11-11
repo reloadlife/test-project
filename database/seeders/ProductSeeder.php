@@ -15,6 +15,8 @@ class ProductSeeder extends Seeder
         Product::factory()->count(20)->create([
             'name' => fn() => 'Product ' . fake()->word(),
             'description' => fn() => fake()->paragraph(),
+            'price' => fn() => fake()->numberBetween(1000, 50000),
+            'stock' => fn() => fake()->numberBetween(1, 1000),
         ]);
     }
 }

@@ -10,8 +10,8 @@ use Illuminate\Support\Str;
 class DatabaseSeeder extends Seeder
 {
     private const TEST_USER = [
-        'name' => 'Mamad',
-        'email' => 'me@mamad.dev',
+        'name' => 'John',
+        'email' => 'john@hi.dev',
         'password' => 'password', // default password,
     ];
 
@@ -34,8 +34,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             ProductSeeder::class,    // Create products
-            BasketSeeder::class,     // Create baskets for users
-            BasketItemSeeder::class, // Add items to baskets
         ]);
     }
 }

@@ -69,7 +69,7 @@ class BasketManagementTest extends TestCase
         $response = $this->addToBasket($this->user, $this->product, quantity: 20);
 
         $response->assertStatus(422)
-            ->assertJson(['message' => 'Requested quantity is not available']);
+            ->assertJson(['message' => 'Requested quantity 20 is not available']);
 
         Log::info('Stock limit test completed');
     }
@@ -81,7 +81,7 @@ class BasketManagementTest extends TestCase
         $response = $this->addToBasket($this->user, $this->outofStockProdct, quantity: 1);
 
         $response->assertStatus(422)
-            ->assertJson(['message' => 'Requested quantity is not available']);
+            ->assertJson(['message' => 'Requested quantity 1 is not available']);
 
         Log::info('Stock nothing in stock limit test completed');
     }

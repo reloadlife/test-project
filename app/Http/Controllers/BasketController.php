@@ -68,10 +68,10 @@ class BasketController extends Controller
         // if it exists, we increase the Quantity and check if it meets stock limitations
         $existingItem = $basket->items()->where('product_id', $product->id)->first();
         if ($existingItem) {
-
             if ($product->stock < ($existingItem->quantity + $request->quantity)) {
+                $total = $existingItem->quantity + $request->quantity;
                 return response()->json([
-                    'message' => 'Requested quantity is not available'
+                    'message' => "Requested quantity {$total} is not available, you already have {$existingItem->quantity} in your basket"
                 ], 422);
             }
 
@@ -83,7 +83,7 @@ class BasketController extends Controller
         // Check product stock
         if ($product->stock < $request->quantity) {
             return response()->json([
-                'message' => 'Requested quantity is not available'
+                'message' => "Requested quantity {$request->quantity} is not available"
             ], 422);
         }
 
