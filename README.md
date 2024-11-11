@@ -1,7 +1,4 @@
-
 # TASK
-
-تسک آزمایشی سبد خرید (آقای محمد مهدی افشار):
 
 برای یک سیستم فروشگاهی قصد پیاده سازی سبد خرید داریم. در این تسک نیازمنده پیاده سازه دو بخش با ویژگی های خودشون هستیم
 
@@ -25,9 +22,6 @@
 
 برای authenticate از sanctum استفاده شود
 
-مهلت انجام : پایان روز سه شنبه 1403/08/22
-
-
 ## info
 
 Swagger: [http://127.0.0.1:8000/api/documentation](http://127.0.0.1:8000/api/documentation)
@@ -37,3 +31,10 @@ Swagger: [http://127.0.0.1:8000/api/documentation](http://127.0.0.1:8000/api/doc
 ```bash
 php artisan test
 ```
+
+## Modifications to the original task:
+
+امکان اضافه کردن کالای تکراری وجود
+ندارد
+
+> instead, we just add the 'quantity' amount to the existing quantity
